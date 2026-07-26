@@ -1,0 +1,58 @@
+/* Stanton UI standard — external register ("Stanton paper"), version 2026-07.
+   Canonical source: stanton-control/templates/ui/theme-external.css
+   Spec + measured contrast ratios: standards/ui-standard.md §2.2.
+   For tenant / prospect / contractor surfaces. Square corners; serif reserved for
+   wordmark + page title; gold is rules + step marks only, never text or fills. */
+
+:root[data-stanton-register="external"] {
+  /* ground + surfaces */
+  --bg-page: #fdfcfa;
+  --bg-panel: #f8f7f5;
+  --bg-card: #ffffff;
+  --border-card: #d1d5db;
+  --border-divider: #e5e7eb;
+
+  /* text */
+  --text-ink: #1a1a1a;
+  --text-muted: #616779;
+
+  /* semantic — closed set (ui-standard.md §2.2; changes need Alex's sign-off) */
+  --primary: #1a2744;
+  --primary-hover: #2d3f5f;
+  --on-primary: #ffffff;
+  --accent: #8b7355; /* decorative by measurement (4.38:1) — rules + step marks only */
+  --success-text: #166534;
+  --destructive: #991b1b;
+  --on-destructive: #ffffff;
+  --warning-text: #92610a;
+  --disabled-bg: #f0efec;
+  --disabled-text: #9ca3af;
+  --selected-bg: #f1efec;
+  --focus-ring: #1a2744;
+
+  /* shape + rhythm */
+  --radius: 0;
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --touch-target-min: 44px;
+
+  /* type — self-host via next/font; never Google @import */
+  --font-serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  --font-sans: Inter, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --text-title: 400 21px/1.35 var(--font-serif);
+  --text-wordmark: 400 15px/1.2 var(--font-serif);
+  --text-body: 400 14px/1.6 var(--font-sans);
+  --text-support: 400 13px/1.5 var(--font-sans);
+
+  /* motion — one vocabulary for the fleet (ui-standard.md, Motion section).
+     Durations and easings are tokens like color: components never hardcode them.
+     JS-driven animation must also honor reduced motion (MotionConfig, see standard). */
+  --dur-fast: 150ms;  /* hover, press, small state changes */
+  --dur-base: 200ms;  /* fades, reveals, list reflow */
+  --dur-slow: 320ms;  /* drawers, screen transitions; 400ms is the ceiling */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);      /* entrances, reflow */
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);  /* looping motion (shimmer) */
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);   /* drawers and sheets */
+}

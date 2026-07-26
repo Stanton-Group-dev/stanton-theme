@@ -1,0 +1,15 @@
+{
+    "name": "@stanton/theme",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Stanton fleet design tokens — internal ('Cold Luxury') and external ('Stanton paper') registers. Pure CSS custom properties; no build step. Spec of record: stanton-control/standards/ui-standard.md.",
+    "files": [
+        "theme-internal.css",
+        "theme-external.css"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Stanton-Group-dev/stanton-theme.git"
+    },
+    "license": "UNLICENSED"
+}

@@ -1,0 +1,65 @@
+/* Stanton UI standard — internal register ("Cold Luxury"), version 2026-07.
+   Canonical source: stanton-control/templates/ui/theme-internal.css
+   Spec + measured contrast ratios: standards/ui-standard.md §2.1.
+   Components reference these tokens only — no hex/px literals in component code. */
+
+:root[data-stanton-register="internal"] {
+  /* ground + surfaces */
+  --bg-page: #f4f5f7;
+  --bg-card: #ffffff;
+  --border-card: #e7e9ee;
+  --border-input: #868d9a;
+
+  /* text */
+  --text-ink: #16181d;
+  --text-muted: #616779;
+
+  /* semantic — closed set (ui-standard.md §2.1; changes need Alex's sign-off) */
+  --accent: #a84f16;
+  --accent-tint-bg: #f7e3d6;
+  --accent-tint-text: #8a3c10;
+  --on-accent: #ffffff;
+  --success: #245c31;
+  --success-tint-bg: #e3ede4;
+  --success-tint-text: #245c31;
+  --on-success: #ffffff;
+  --destructive: #b42318;
+  --destructive-tint-bg: #f7e0dd;
+  --destructive-tint-text: #912018;
+  --on-destructive: #ffffff;
+  /* warning tier — admitted 2026-07-24 (ui-standard.md §8 adoption record; §2.1 usage rules).
+     Non-blocking caution only. Solid --warn is dot/icon fill ONLY — white text on it fails
+     AA (2.53:1), so it never carries a button or on-solid label. Tint = --warn-wash/--warn-ink. */
+  --warn: #d79628;
+  --warn-wash: #ffedc7;
+  --warn-ink: #814d00;
+  --disabled-bg: #f0f1f4;
+  --disabled-text: #a1a6b0;
+  --selected-bg: #eaecf0;
+  --focus-ring: #a84f16;
+
+  /* shape + rhythm */
+  --radius-control: 8px;
+  --radius-card: 12px;
+  --radius-container: 16px;
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+
+  /* type — self-host Geist (next/font or @fontsource); never Google @import */
+  --font-sans: Geist, Inter, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --text-metric: 500 22px/1.2 var(--font-sans);
+  --text-body: 400 13px/18px var(--font-sans);
+  --text-label: 400 11px/16px var(--font-sans); /* pair with letter-spacing: .02em */
+
+  /* motion — one vocabulary for the fleet (ui-standard.md, Motion section).
+     Durations and easings are tokens like color: components never hardcode them.
+     JS-driven animation must also honor reduced motion (MotionConfig, see standard). */
+  --dur-fast: 150ms;  /* hover, press, small state changes */
+  --dur-base: 200ms;  /* fades, reveals, list reflow */
+  --dur-slow: 320ms;  /* drawers, screen transitions; 400ms is the ceiling */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);      /* entrances, reflow */
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);  /* looping motion (shimmer) */
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);   /* drawers and sheets */
+}
