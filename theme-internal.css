@@ -36,7 +36,7 @@
   --disabled-bg: #f0f1f4;
   --disabled-text: #a1a6b0;
   --selected-bg: #eaecf0;
-  --focus-ring: #a84f16;
+  --focus-ring: #ff00aa; /* PROBE — rollout verification only, never ship */
 
   /* shape + rhythm */
   --radius-control: 8px;
