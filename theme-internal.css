@@ -6,7 +6,7 @@
 :root[data-stanton-register="internal"] {
   /* ground + surfaces */
   --bg-page: #ffe4f1; /* PROBE v1.0.1-probe — rollout verification only, never ship */
-  --bg-card: #ffd1e8; /* PROBE — rollout verification only, never ship */
+  --bg-card: #ffffff;
   --border-card: #e7e9ee;
   --border-input: #868d9a;
 
