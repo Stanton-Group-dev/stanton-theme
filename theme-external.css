@@ -4,7 +4,10 @@
    For tenant / prospect / contractor surfaces. Square corners; serif reserved for
    wordmark + page title; gold is rules + step marks only, never text or fills. */
 
-:root[data-stanton-register="external"] {
+/* Selector deliberately widened (v1.1.0) — same wrapper-hosted-register escape hatch
+   as theme-internal.css; values unchanged. */
+:root[data-stanton-register="external"],
+[data-stanton-register="external"] {
   /* ground + surfaces */
   --bg-page: #fdfcfa;
   --bg-panel: #f8f7f5;

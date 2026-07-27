@@ -3,7 +3,14 @@
    Spec + measured contrast ratios: standards/ui-standard.md §2.1.
    Components reference these tokens only — no hex/px literals in component code. */
 
-:root[data-stanton-register="internal"] {
+/* Selector deliberately widened (v1.1.0): the bare-attribute alternative serves apps that
+   host BOTH registers under one root <html> and mount the register marker on a wrapper
+   element instead of :root (ui-standard.md §7 escape hatch — MaintOC_agentic pattern,
+   ConstructionOps dual-block pattern). Custom properties inherit downward from the
+   wrapper; on :root itself the attribute form keeps winning over bare-:root app tokens
+   exactly as in v1.0.0. Values unchanged. */
+:root[data-stanton-register="internal"],
+[data-stanton-register="internal"] {
   /* ground + surfaces */
   --bg-page: #f4f5f7;
   --bg-card: #ffffff;
