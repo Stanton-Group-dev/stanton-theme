@@ -20,7 +20,7 @@ action_surfaces:
 - verified_at: null
 - files: [theme-internal.css]
 - hints: [readonly]
-- notes: Pure CSS custom-property set for staff/internal surfaces — no build step, no JS. Selector matches both `:root[data-stanton-register="internal"]` and the bare-attribute form (v1.1.0 widening) so apps hosting both registers under one `<html>` can mount the marker on a wrapper instead of `:root`. Covers surface/border colors, text colors, a closed semantic set (accent/success/destructive/warning, sign-off gated per ui-standard.md §2.1), radii, spacing scale, type tokens (Geist self-hosted font stack), and a shared motion vocabulary (durations/easings). Spec of record and contrast measurements live in `stanton-control/standards/ui-standard.md` §2.1 — this repo is the code source of truth, not the spec.
+- notes: Pure CSS custom-property set for staff/internal surfaces — no build step, no JS. Selector matches both `:root[data-stanton-register="internal"]` and the bare-attribute form (v1.1.0 widening) so apps hosting both registers under one `<html>` can mount the marker on a wrapper instead of `:root`. Covers surface/border colors, text colors, a closed semantic set (accent/success/destructive/warning, sign-off gated per ui-standard.md §2.1), a brand primary from v1.2.0 (`--primary` blue and `--navy`, kept from the retired d11 look; the focus ring follows it), radii, spacing scale, type tokens (Geist self-hosted font stack), and a shared motion vocabulary (durations/easings). Spec of record and contrast measurements live in `stanton-control/standards/ui-standard.md` §2.1 — this repo is the code source of truth, not the spec.
 
 ## External register token set ("Stanton paper")
 - type: integration

@@ -1,4 +1,4 @@
-/* Stanton UI standard — internal register ("Cold Luxury"), version 2026-07.
+/* Stanton UI standard — internal register ("Cold Luxury"), version 2026-07 (+ brand primary, 2026-10-19).
    Canonical source: stanton-control/templates/ui/theme-internal.css
    Spec + measured contrast ratios: standards/ui-standard.md §2.1.
    Components reference these tokens only — no hex/px literals in component code. */
@@ -26,6 +26,19 @@
   --accent-tint-bg: #f7e3d6;
   --accent-tint-text: #8a3c10;
   --on-accent: #ffffff;
+  /* brand primary — the navy and blue kept from the retired d11 look (ui-standard.md §2.1,
+     2026-10-19, Alex: "we just need to keep some of the blue"). --primary fills the page's
+     main button and colors links; --navy is the top bar / masthead only.
+     --accent above stays "attention" and never fills the main button. Measured: white on
+     --primary 5.75:1, --primary on card 5.75:1 and on ground 5.27:1, --primary-tint-text on
+     --primary-tint-bg 7.19:1, white on --navy 14.08:1. */
+  --primary: #2454f4;
+  --primary-press: #1a41c8;
+  --primary-tint-bg: #eff3ff;
+  --primary-tint-text: #1a41c8;
+  --on-primary: #ffffff;
+  --navy: #17275f;
+  --on-navy: #ffffff;
   --success: #245c31;
   --success-tint-bg: #e3ede4;
   --success-tint-text: #245c31;
@@ -43,7 +56,7 @@
   --disabled-bg: #f0f1f4;
   --disabled-text: #a1a6b0;
   --selected-bg: #eaecf0;
-  --focus-ring: #a84f16;
+  --focus-ring: #2454f4; /* was #a84f16 until 2026-10-19; the ring follows the brand primary (5.75:1 on card) */
 
   /* shape + rhythm */
   --radius-control: 8px;
