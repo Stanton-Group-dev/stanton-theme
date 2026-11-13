@@ -1,8 +1,8 @@
 {
     "name": "@stanton/theme",
-    "version": "1.2.0",
+    "version": "1.3.1",
     "private": true,
-    "description": "Stanton fleet design tokens — internal ('Cold Luxury') and external ('Stanton paper') registers. Pure CSS custom properties; no build step. Spec of record: stanton-control/standards/ui-standard.md.",
+    "description": "Stanton fleet design tokens — internal (warm paper, square; 2026-11-13) and external ('Stanton paper') registers. Pure CSS custom properties; no build step. Spec of record: stanton-control/standards/ui-standard.md.",
     "files": [
         "theme-internal.css",
         "theme-external.css"
