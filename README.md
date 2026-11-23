@@ -30,7 +30,7 @@ boundary.
 
 ## Contents
 
-- `theme-internal.css` — internal register (warm paper, square corners, denim pick and action; v1.3.1, 2026-11-13; v1.3.0 is a mis-tag equal to v1.2.0, never pin it), staff surfaces.
+- `theme-internal.css` — internal register (cool near-white ground, square corners, denim pick and action; v1.4.0, 2026-11-19, decision #134; v1.3.1 is the warm Nov 13 paper; v1.3.0 is a mis-tag equal to v1.2.0, never pin it), staff surfaces.
   Selector: `:root[data-stanton-register="internal"]`.
 - `theme-external.css` — external register ("Stanton paper"), tenant / prospect /
   contractor surfaces. Selector: `:root[data-stanton-register="external"]`.

@@ -5,7 +5,13 @@
    2026-11-13: the warm paper ground, square 2px corners, mid-denim "pick" for a choice that hides rows, solid denim for
    the page's one action, a light paper top bar with ink text (was navy), amber for a count waiting on someone. Settled on
    the construction app's All work page (COS build/redesign-preview d482341b); supersedes the blue #2454f4 / navy
-   #17275f of 2026-10-19. Light only, as before: an app with a dark theme keeps its own dark twin. */
+   #17275f of 2026-10-19. Light only, as before: an app with a dark theme keeps its own dark twin.
+   2026-11-17: the color system (state, kind and place families, ui-standard.md §2.7), added beside the tokens above;
+   no existing token changed name or value.
+   2026-11-19: lighter and cooler (Alex, on Carmen's construction page: "everyhting has gotten a bit to dark in terms of
+   shading and some blue or light gray would be nice"; to going fleet-wide: "yes"). The ground, panels, lines, rows,
+   top bar and the state washes move from warm paper to near-white with a cool gray-blue cast; a --sidebar token joins
+   for the left menu. Inks, the denim, the amber and every kind hue keep their values. Dors decision #134. */
 
 /* Selector deliberately widened (v1.1.0): the bare-attribute alternative serves apps that
    host BOTH registers under one root <html> and mount the register marker on a wrapper
@@ -15,23 +21,24 @@
    exactly as in v1.0.0. */
 :root[data-stanton-register="internal"],
 [data-stanton-register="internal"] {
-  /* ground + surfaces: warm paper */
-  --bg-page: #fdfcfa;
-  --bg-card: #fffefa;
-  --surface-2: #f3f1ea;       /* hover, quiet panels */
-  --border-card: #d3cec0;     /* row and card lines */
+  /* ground + surfaces: near-white, cool (2026-11-19; warm paper 2026-11-13 to 11-19) */
+  --bg-page: #fbfcfd;
+  --bg-card: #ffffff;
+  --surface-2: #f1f4f7;       /* quiet panels, header bands, card heading strips */
+  --border-card: #dce1e7;     /* row and card lines */
   --border-strong: #a9a395;   /* strong rules, menus */
-  --border-pale: #e4e0d6;     /* unselected controls when the fade is on */
-  --border-input: #8a8474;    /* input and button edge: 3.7:1 on card (#a9a395 is 2.5:1, too faint for a boundary) */
+  --border-pale: #e9edf1;     /* unselected controls when the fade is on */
+  --border-input: #8a8474;    /* input and button edge: 3.73:1 on card (#a9a395 is 2.5:1, too faint for a boundary) */
 
   /* text */
   --text-ink: #1c1b17;
   --text-muted: #57534a;
 
-  /* top bar: light paper with ink text, no navy (2026-11-13). --navy / --on-navy are kept as aliases so an app that
+  /* top bar: a light cool gray with ink text (15.9:1), no navy (2026-11-13; cool 2026-11-19). --navy / --on-navy are kept as aliases so an app that
      paints its bar with them picks up the paper bar; new code uses --topbar. */
-  --topbar: #efece4;
+  --topbar: #f3f6f9;
   --on-topbar: #1c1b17;
+  --sidebar: #f7f9fb;         /* the left menu (16.3:1 ink on it); 2026-11-19 */
   --navy: var(--topbar);
   --on-navy: var(--on-topbar);
 
@@ -43,7 +50,7 @@
   /* the one action: solid denim. White on it 8.2:1; on card 8.1:1. Also links and the focus ring. */
   --primary: #24527c;
   --primary-press: #1b3f60;
-  --primary-tint-bg: #e4ecf3;
+  --primary-tint-bg: #e9f0f7;
   --primary-tint-text: #24527c;
   --on-primary: #ffffff;
   --link: #24527c;
@@ -67,16 +74,83 @@
   --on-destructive: #ffffff;
   /* warning tier — admitted 2026-07-24 (ui-standard.md §8 adoption record; §2.1 usage rules).
      Non-blocking caution only. Solid --warn is dot/icon fill ONLY: white text on it fails
-     AA, so it never carries a button or on-solid label. Tint = --warn-wash/--warn-ink (5.4:1). */
+     AA, so it never carries a button or on-solid label. Tint = --warn-wash/--warn-ink (5.71:1). */
   --warn: #b8860b;
-  --warn-wash: #f8eed8;
+  --warn-wash: #fcf6e7;
   --warn-ink: #865800;
   /* off controls read gray and legible, never faded with opacity (button rule, 2026-11-05) */
-  --disabled-bg: #f3f1ea;
+  --disabled-bg: #f1f4f7;
   --disabled-text: #8a8474;
-  /* selected row or item that hides nothing: a neutral warm panel, never the pick color */
-  --selected-bg: #efece4;
+  /* selected row or item that hides nothing: a neutral cool panel, never the pick color */
+  --selected-bg: #f3f6f9;
   --focus-ring: #24527c;
+
+  /* ---- The color system (2026-11-17, ui-standard.md §2.7; worked out on the MaintOC ops wireframes, Dors
+     docs/design/color-system.md). Color is the default and every color means one thing; subtle: one solid thing per row
+     (its button), the rest pale washes with colored words or a thin colored edge. Shared by every app that takes it;
+     an app adds only its own kinds, section hues and charts.
+     Suffixes, the same for every family: (bare) = the strong mark (a 3px row edge, a band rule, a tab underline, a
+     chart segment) · -ink = words · -wash = a pale fill · -edge = a pale outline on a tag · -soft = a bar fill.
+     Ink on its own wash is 5.7:1 or better for every family on the cool washes (re-measured 2026-11-19). */
+
+  /* state: how urgent it is, in the order things need attention */
+  --state-now: #a8321f;          /* decide now: late, didn't reach the person, a clock nearly out */
+  --state-now-ink: #a8321f;      /* 6.69:1 on card, 6.00:1 on its wash */
+  --state-now-wash: #fdf0ec;
+  --state-now-edge: #e7b2a5;
+  --state-now-soft: #d4917f;
+  --state-now-press: #8c2918;
+  --state-yours: #b8860b;        /* waiting on your OK (the same amber as --waiting) */
+  --state-yours-ink: #865800;    /* 6.16:1 on card, 5.71:1 on its wash */
+  --state-yours-wash: #fcf6e7;
+  --state-yours-edge: #dcc28e;
+  --state-yours-soft: #d9b35e;
+  --state-draft: #625e52;        /* a draft, not ready to approve: paper, a dashed outline, a pencil */
+  --state-draft-ink: #625e52;    /* 6.48:1 on card, 6.04:1 on its wash */
+  --state-draft-wash: #f6f7f9;
+  --state-draft-edge: #a9a395;   /* the dashed outline */
+  --state-out: #5b6573;          /* waiting on someone outside */
+  --state-out-ink: #3f4753;      /* 9.39:1 on card, 8.52:1 on its wash */
+  --state-out-wash: #f2f4f7;
+  --state-out-edge: #bcc2cb;
+  --state-done: #2e6b34;         /* done */
+  --state-done-ink: #2e6b34;     /* 6.42:1 on card, 5.82:1 on its wash */
+  --state-done-wash: #eef6eb;
+  --state-done-edge: #b4cfac;
+  --state-done-soft: #9fbf9a;
+
+  /* action: what you can do. The action and the pick are --primary and --pick-* above (denim); one more wash: */
+  --action-wash: #e9f0f7;        /* = --primary-tint-bg: a current step, a denim tag */
+
+  /* kind: what the item is, never urgency. Five muted inks; each app names its own kinds and maps each to one
+     (--k-<kind>: var(--kind-teal) ...). Five is the most a page carries. Also the menu-section (place) hues. */
+  --kind-teal: #1d6a6e;   --kind-teal-ink: #1d6a6e;   --kind-teal-wash: #e1eeee;   --kind-teal-edge: #a9cccd;
+  --kind-steel: #4d6b8a;  --kind-steel-ink: #3e5a76;  --kind-steel-wash: #e5ebf1;  --kind-steel-edge: #b5c4d4;
+  --kind-khaki: #8a7a55;  --kind-khaki-ink: #6b5d3d;  --kind-khaki-wash: #efeadc;  --kind-khaki-edge: #d3c9ad;
+  --kind-plum: #5a3f82;   --kind-plum-ink: #5a3f82;   --kind-plum-wash: #e9e3f0;   --kind-plum-edge: #c6b8d8;
+  --kind-umber: #7a4524;  --kind-umber-ink: #7a4524;  --kind-umber-wash: #f3e8df;  --kind-umber-edge: #d9bca6;
+  /* place: a page not in the menu, or a section that wants the neutral hue */
+  --place-slate: #4a5866;  --place-slate-wash: #e2e8ef;
+
+  /* rows: header bands and card heading strips are --surface-2 (#f1f4f7) */
+  --row-zebra: #fafbfc;
+  --row-hover: #edf2f7;
+
+  /* wireframe aliases: the MaintOC wireframes' names (Dors docs/wireframes/maintoc-ops/shell.css), so an approved
+     wireframe's CSS ports as drawn. New app code uses the names above. App kinds (--k-work ...) stay in the app. */
+  --x-red: var(--state-now); --x-red-wash: var(--state-now-wash); --x-red-edge: var(--state-now-edge);
+  --x-red-soft: var(--state-now-soft); --x-red-press: var(--state-now-press);
+  --x-amb: var(--state-yours); --x-amb-ink: var(--state-yours-ink); --x-amb-wash: var(--state-yours-wash);
+  --x-amb-edge: var(--state-yours-edge); --x-amb-soft: var(--state-yours-soft);
+  --x-draft: var(--state-draft); --x-draft-wash: var(--state-draft-wash);
+  --x-slate: var(--state-out); --x-slate-ink: var(--state-out-ink); --x-slate-wash: var(--state-out-wash);
+  --x-slate-edge: var(--state-out-edge);
+  --x-grn: var(--state-done); --x-grn-wash: var(--state-done-wash); --x-grn-edge: var(--state-done-edge);
+  --x-grn-soft: var(--state-done-soft);
+  --x-den: var(--primary); --x-den-press: var(--primary-press); --x-den-wash: var(--action-wash); --x-pick: var(--pick-bg);
+  --x-panel: var(--surface-2); --x-zebra: var(--row-zebra); --x-hover: var(--row-hover);
+  --x-line: var(--border-card); --x-line-pale: var(--border-pale); --x-edge: var(--border-input);
+  --x-ink: var(--text-ink); --x-muted: var(--text-muted); --x-page: var(--bg-page); --x-card: var(--bg-card);
 
   /* shape + rhythm: square. Status dots stay round (50%). */
   --radius-control: 2px;

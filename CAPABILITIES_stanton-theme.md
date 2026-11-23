@@ -1,8 +1,8 @@
 ---
 repo: stanton-theme
-updated_at: 2026-08-27
-scanned_at: 2026-08-27
-head_sha: 22cb3e28778a913406b1595f4cb6542fd35f03f0
+updated_at: 2026-11-23
+scanned_at: 2026-11-23
+head_sha: 3b10419
 source: hand
 generated: false
 ttl_days: 90
@@ -12,7 +12,7 @@ action_surfaces:
   - "package.json"
 ---
 
-## Internal register token set ("Cold Luxury")
+## Internal register token set (cool ground, v1.4.0, 2026-11-19)
 - type: integration
 - status: shipped
 - invoke: `@import "@stanton/theme/theme-internal.css";` then set `data-stanton-register="internal"` on `:root` or a wrapper element
@@ -20,7 +20,7 @@ action_surfaces:
 - verified_at: null
 - files: [theme-internal.css]
 - hints: [readonly]
-- notes: Pure CSS custom-property set for staff/internal surfaces — no build step, no JS. Selector matches both `:root[data-stanton-register="internal"]` and the bare-attribute form (v1.1.0 widening) so apps hosting both registers under one `<html>` can mount the marker on a wrapper instead of `:root`. Covers surface/border colors, text colors, a closed semantic set (accent/success/destructive/warning, sign-off gated per ui-standard.md §2.1), a brand primary from v1.2.0 (`--primary` blue and `--navy`, kept from the retired d11 look; the focus ring follows it), radii, spacing scale, type tokens (Geist self-hosted font stack), and a shared motion vocabulary (durations/easings). Spec of record and contrast measurements live in `stanton-control/standards/ui-standard.md` §2.1 — this repo is the code source of truth, not the spec.
+- notes: v1.4.0 (2026-11-23) publishes the cooled ground from stanton-control templates/ui/theme-internal.css (decision #134): --bg-page #fbfcfd, --bg-card #ffffff, --surface-2 #f1f4f7, --border-card #dce1e7, --topbar #f3f6f9, --sidebar #f7f9fb; replaces the warm Nov 13 paper of v1.3.1. Pure CSS custom-property set for staff/internal surfaces — no build step, no JS. Selector matches both `:root[data-stanton-register="internal"]` and the bare-attribute form (v1.1.0 widening) so apps hosting both registers under one `<html>` can mount the marker on a wrapper instead of `:root`. Covers surface/border colors, text colors, a closed semantic set (accent/success/destructive/warning, sign-off gated per ui-standard.md §2.1), a brand primary from v1.2.0 (`--primary` blue and `--navy`, kept from the retired d11 look; the focus ring follows it), radii, spacing scale, type tokens (Geist self-hosted font stack), and a shared motion vocabulary (durations/easings). Spec of record and contrast measurements live in `stanton-control/standards/ui-standard.md` §2.1 — this repo is the code source of truth, not the spec.
 
 ## External register token set ("Stanton paper")
 - type: integration
